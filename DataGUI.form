@@ -34,6 +34,7 @@
                 </constraints>
                 <properties>
                   <background color="-2504836"/>
+                  <font name="Bookshelf Symbol 7" size="20"/>
                   <foreground color="-15003631"/>
                   <text value="Add days to a given date"/>
                 </properties>
@@ -44,6 +45,7 @@
                 </constraints>
                 <properties>
                   <background color="-2504836"/>
+                  <font name="Bookshelf Symbol 7" size="20"/>
                   <foreground color="-15003631"/>
                   <text value="Add months to a given date"/>
                 </properties>
@@ -54,6 +56,7 @@
                 </constraints>
                 <properties>
                   <background color="-2504836"/>
+                  <font name="Bookshelf Symbol 7" size="20"/>
                   <foreground color="-15003631"/>
                   <text value="Show difference between dates"/>
                 </properties>
@@ -64,6 +67,7 @@
                 </constraints>
                 <properties>
                   <background color="-2504836"/>
+                  <font name="Bookshelf Symbol 7" size="20"/>
                   <foreground color="-15003631"/>
                   <text value="Show today's date"/>
                 </properties>
@@ -86,6 +90,7 @@
                 </constraints>
                 <properties>
                   <background color="-2504836"/>
+                  <font name="Bookshelf Symbol 7" size="20"/>
                   <foreground color="-15003631"/>
                   <text value="Close"/>
                 </properties>

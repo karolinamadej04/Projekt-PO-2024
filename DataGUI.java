@@ -16,7 +16,7 @@ public class DataGUI extends JFrame{
         super("Date");
         this.setContentPane(this.JPanel1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        int width=500, height=320;
+        int width=650, height=400;
         this.setSize(width,height);
         setResizable(false);
 
@@ -30,6 +30,7 @@ public class DataGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 ShowDateGUI showDateGUI=new ShowDateGUI();
+                showDateGUI.setLocationRelativeTo(null);
                 showDateGUI.setVisible(true);
             }
         });
@@ -37,6 +38,7 @@ public class DataGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 AddDaysGUI addDaysGUI=new AddDaysGUI();
+                addDaysGUI.setLocationRelativeTo(null);
                 addDaysGUI.setVisible(true);
             }
         });
@@ -44,6 +46,7 @@ public class DataGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 AddMonthsGUI addMonthsGUI=new AddMonthsGUI();
+                addMonthsGUI.setLocationRelativeTo(null);
                 addMonthsGUI.setVisible(true);
             }
         });
@@ -51,6 +54,7 @@ public class DataGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 DifferenceGUI differenceGUI=new DifferenceGUI();
+                differenceGUI.setLocationRelativeTo(null);
                 differenceGUI.setVisible(true);
             }
         });

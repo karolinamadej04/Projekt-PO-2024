@@ -1,3 +1,4 @@
+import java.util.Calendar;
 public class Data {
     private int dzien;
     private int miesiac;
@@ -7,6 +8,19 @@ public class Data {
         this.dzien=dzien;
         this.miesiac=miesiac;
         this.rok=rok;
+    }
+    public boolean existsDate(){                            //Funkcja sprawdzająca czy data istnieje (rok musi być powyżej zera)
+        int[] tabNorm = {31,28,31,30,31,30,31,31,30,31,30,31};
+        int[] tabPrzys = {31,29,31,30,31,30,31,31,30,31,30,31};
+        if(rok<=0)return false;
+        if(miesiac>12)return false;
+        if(leapYearCheck(rok)==true){
+            if(dzien>tabPrzys[miesiac-1]) return false;
+        }
+        else {
+            if(dzien>tabNorm[miesiac-1]) return false;
+        }
+        return true;
     }
     public int getIndeks(Data MojaData){
         int[] tab = {31,28,31,30,31,30,31,31,30,31,30,31};

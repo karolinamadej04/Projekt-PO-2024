@@ -3,21 +3,124 @@
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="506" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="6baa4" binding="JPanel1" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
+      <grid id="6baa4" binding="JPanel1" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="5" left="5" bottom="5" right="5"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-2504836"/>
+          <background color="-15003631"/>
         </properties>
         <border type="none"/>
-        <children/>
+        <children>
+          <grid id="12c3d" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15003631"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="bd3d6" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Bookshelf Symbol 7" size="28" style="1"/>
+                  <foreground color="-2504836"/>
+                  <text value="What day is today?"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="fe3b9" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15003631"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="d1ec7" class="javax.swing.JButton" binding="goBackBtn">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-2504836"/>
+                  <font name="Bookshelf Symbol 7" size="20"/>
+                  <foreground color="-15003631"/>
+                  <text value="Go back"/>
+                </properties>
+              </component>
+              <hspacer id="aeb08">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+            </children>
+          </grid>
+          <grid id="28dfa" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15003631"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="b1496" class="javax.swing.JLabel" binding="todayJLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Bookshelf Symbol 7" size="20"/>
+                  <foreground color="-2504836"/>
+                  <text value=" "/>
+                </properties>
+              </component>
+              <component id="4bf5f" class="javax.swing.JComboBox" binding="formatComboBox">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-2504836"/>
+                  <enabled value="true"/>
+                  <focusable value="true"/>
+                  <font name="Bookshelf Symbol 7" size="20"/>
+                  <foreground color="-15003631"/>
+                  <model>
+                    <item value="dd-mm-yyyy"/>
+                    <item value="dd-mm-yyyy (Long)"/>
+                    <item value="mm-dd-yyyy"/>
+                    <item value="mm-dd-yyyy (Long)"/>
+                  </model>
+                  <opaque value="true"/>
+                </properties>
+              </component>
+              <component id="7a48" class="javax.swing.JButton" binding="todayBtn">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-2504836"/>
+                  <font name="Bookshelf Symbol 7" size="20"/>
+                  <foreground color="-15003631"/>
+                  <text value="Show today's date"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
       </grid>
     </children>
   </grid>
