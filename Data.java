@@ -46,16 +46,15 @@ public class Data {
         if(year%4==0) return true;
         else return false;
     }
-    public String przesunDate(Data dataPoczatkowa, int liczbaDni){
+    public Data przesunDate(Data dataPoczatkowa, int liczbaDni){            //Przesuwa date w prawo o daną liczbę dni
         if(liczbaDni<getIndeksLast(dataPoczatkowa)){
-            return przesunTenSamRok(liczbaDni,dataPoczatkowa).toString();
+            return przesunTenSamRok(liczbaDni,dataPoczatkowa);
         }
         else if ((liczbaDni<getIndeksLast(dataPoczatkowa) +365 && leapYearCheck(dataPoczatkowa.rok+1)==false) || (liczbaDni<getIndeksLast(dataPoczatkowa) +366 && leapYearCheck(dataPoczatkowa.rok+1)==true)){
-            return przesunNastepnyRok(liczbaDni,dataPoczatkowa).toString();
+            return przesunNastepnyRok(liczbaDni,dataPoczatkowa);
         }
-        else return przesunKilkaLat(liczbaDni,dataPoczatkowa).toString();
+        else return przesunKilkaLat(liczbaDni,dataPoczatkowa);
     }
-
     private Data przesunTenSamRok(int iloscDni, Data dataPoczatkowa){
         int indeksKoncowy=getIndeks(dataPoczatkowa)+iloscDni;
         Data dataKoncowa=indeksNaDate(indeksKoncowy,dataPoczatkowa.rok);
@@ -97,13 +96,106 @@ public class Data {
         dataKoncowa= indeksNaDate(iloscDni,rokKoncowy);
         return dataKoncowa;
     }
-    public String toString(){
+
+    public Data dodajMiesiace(Data dataPoczatkowa, int liczbaMiesiecy){               //Przesuwa date w prawo o daną liczbę miesiecy
+        int currentMonth=dataPoczatkowa.miesiac;
+        int currentYear=dataPoczatkowa.rok;
+        for(int i=0;i<liczbaMiesiecy;i++){
+            if(currentMonth+1>12){
+                currentMonth=0;
+                currentYear++;
+            }
+            currentMonth++;
+        }
+        Data nowaData=new Data(dataPoczatkowa.dzien,currentMonth,currentYear);
+        return nowaData;
+    }
+
+    public int roznicaDat(Data dataPierwsza, Data dataDruga){
+        Data data1;     //wcześniejsza data
+        Data data2;    //późniejsza data
+        if(dataPierwsza.rok>dataDruga.rok){data1=dataDruga; data2=dataPierwsza;}
+        else if(dataPierwsza.rok<dataDruga.rok){data1=dataPierwsza; data2=dataDruga;}
+        else{
+            if(getIndeks(dataPierwsza)>getIndeks(dataDruga)){data1=dataDruga; data2=dataPierwsza;}
+            else if(getIndeks(dataPierwsza)<getIndeks(dataDruga)){data1=dataPierwsza; data2=dataDruga;}
+            else return 0;
+        }
+        int liczbaDni=0;
+        if(data1.rok!=data2.rok){
+            liczbaDni=liczbaDni+getIndeksLast(data1)-1;
+            while(data1.rok+1!=data2.rok){
+                if(leapYearCheck(data1.rok+1)==true) liczbaDni=liczbaDni+366;
+                else liczbaDni=liczbaDni+365;
+                data1.rok++;
+            }
+            data1.rok++;
+            liczbaDni=liczbaDni+getIndeks(data2);
+        }
+        else {liczbaDni=getIndeks(data2)-getIndeks(data1);}
+        return liczbaDni;
+    }
+
+
+    //     FORMATY ZAPISU DATY:
+
+    public String ddmmyyyy(){                          // format dzień-miesiąc-rok
         String locDzien;
         String locMiesiac;
         if(dzien<10) locDzien="0"+dzien;
         else locDzien=""+dzien;
         if(miesiac<10) locMiesiac="0"+miesiac;
         else locMiesiac=""+miesiac;
-        return locDzien+"/"+locMiesiac+"/"+rok;
+        return locDzien+"-"+locMiesiac+"-"+rok;
+    };
+    public String ddmmyyyyLong(){                      // format dzień-miesiąc-rok, gdzie miesiąc jest w formie słownej
+        String locDzien;
+        String locMiesiac;
+        if(dzien<10) locDzien="0"+dzien;
+        else locDzien=""+dzien;
+        switch (miesiac){
+            case 1: locMiesiac="January";break;
+            case 2: locMiesiac="February";break;
+            case 3: locMiesiac="March";break;
+            case 4: locMiesiac="April";break;
+            case 5: locMiesiac="May";break;
+            case 6: locMiesiac="June";break;
+            case 7: locMiesiac="July";break;
+            case 8: locMiesiac="August";break;
+            case 9: locMiesiac="September";break;
+            case 10: locMiesiac="October";break;
+            case 11: locMiesiac="November";break;
+            case 12: locMiesiac="December";break;
+            default: locMiesiac="Error";break;
+        }
+        return locDzien+"-"+locMiesiac+"-"+rok;
+    }
+    public String mmddyyyy(){                          // format miesiąc-dzień-rok
+        String locDzien;
+        String locMiesiac;
+        if(dzien<10) locDzien="0"+dzien;
+        else locDzien=""+dzien;
+        if(miesiac<10) locMiesiac="0"+miesiac;
+        else locMiesiac=""+miesiac;
+        return locMiesiac+"-"+locDzien+"-"+rok;
+    }
+    public String mmddyyyyLong(){                     // format miesiąc-dzień-rok, gdzie miesiąc jest w formie słownej
+        String locMiesiac;
+        switch (miesiac){
+            case 1: locMiesiac="January";break;
+            case 2: locMiesiac="February";break;
+            case 3: locMiesiac="March";break;
+            case 4: locMiesiac="April";break;
+            case 5: locMiesiac="May";break;
+            case 6: locMiesiac="June";break;
+            case 7: locMiesiac="July";break;
+            case 8: locMiesiac="August";break;
+            case 9: locMiesiac="September";break;
+            case 10: locMiesiac="October";break;
+            case 11: locMiesiac="November";break;
+            case 12: locMiesiac="December";break;
+            default: locMiesiac="Error";break;
+        }
+        return locMiesiac+" "+miesiac+", "+rok;
     }
 }
